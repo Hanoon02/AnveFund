@@ -4,17 +4,11 @@ import axios from 'axios'
 
 function View(){
     const [show, setShow] = useState(false);
-    const [transactions, setTransactions] = useState(false);
     const [projectData, setProjectData] = useState([]);
     useEffect(() => { handleClick() }, [projectData]);
 
     const handleClick = () => {
         if(projectData.length!==0) setShow(!show);
-    }
-
-    const handleTransactions = () => {
-        transactionDetail();
-        setTransactions(!transactions);
     }
 
     const handleSubmit = (e) => {
@@ -34,17 +28,6 @@ function View(){
         .catch(err=>console.log(err));
     }
 
-
-    const transactionDetail = () =>{
-        axios.get("http://localhost:5000/userDetails")
-        .then(res=>{
-            console.log(res)
-        })
-        .catch(err=>console.log(err));
-    }
-
-
-
     return(
         <>
             <p className={'pl-[36px] text-3xl pt-[36px]'}> View Your Application </p>
@@ -58,8 +41,6 @@ function View(){
             </div>
             {show && <>
                 <Project title={projectData.title} amount={projectData.expectedAmount} domain={projectData.domain} author={projectData.author}/>
-                <div className={'flex justify-center my-3'}><div className={'border border-black rounded-full p-2 mx-2 bg-green-500 w-[120px] text-center'}><button onClick={handleTransactions}>View All Fundings</button></div></div>
-                {transactions && <></>}
             </>}
         </>
     )
