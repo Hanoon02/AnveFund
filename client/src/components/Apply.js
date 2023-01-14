@@ -1,13 +1,28 @@
 import React from "react";
+import axios from 'axios'
 
 function Apply(){
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log(e.target.Topic.value);
-        console.log(e.target.Researcher.value);
-        console.log(e.target.Domain.value);
-        console.log(e.target.Grants.value);
-        console.log(e.target.Metamask.value);
+        let request = {
+            title : e.target.Topic.value,
+            author : e.target.Researcher.value,
+            domain : e.target.Domain.value,
+            expectedAmount : e.target.Grants.value*1,
+            collectedAmount : 0,
+            walletID : e.target.Metamask.value
+        }
+        // console.log(e.target.Topic.value);
+        // console.log(e.target.Researcher.value);
+        // console.log(e.target.Domain.value);
+        // console.log(e.target.Grants.value);
+        // console.log(e.target.Metamask.value);
+        console.log(request)
+        axios.post("http://localhost:5000/regDetails",request)
+        .then(res=>{
+            console.log(res)
+        })
+        .catch(err=>console.log(err))
     }
 
     return(
