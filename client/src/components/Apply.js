@@ -12,11 +12,6 @@ function Apply(){
             collectedAmount : 0,
             walletID : e.target.Metamask.value
         }
-        // console.log(e.target.Topic.value);
-        // console.log(e.target.Researcher.value);
-        // console.log(e.target.Domain.value);
-        // console.log(e.target.Grants.value);
-        // console.log(e.target.Metamask.value);
         console.log(request)
         axios.post("http://localhost:5000/regDetails",request)
         .then(res=>{
