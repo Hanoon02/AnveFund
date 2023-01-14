@@ -8,14 +8,7 @@ function Project(props){
             <div className={'pt-[18px]'}>
                 <p className={'text-center text-2xl'}>{props.title}</p>
                 <div className={'flex justify-center'}>
-                    <div className={'flex flex-col'}>
-                        <p className={'text-lg px-8 py-2'}>Start Date</p>
-                        <p className={'text-lg px-8 pb-1'}>{props.start}</p>
-                    </div>
-                    <div className={'flex flex-col'}>
-                        <p className={'text-lg px-8 py-2'}>End Date</p>
-                        <p className={'text-lg px-8 pb-1'}>{props.end}</p>
-                    </div>
+                    <p className={'text-lg'}> Author: {props.author}</p>
                 </div>
                 <div className={'flex justify-center'}>
                     <p className={'text-lg'}> Domains: {props.domain}</p>

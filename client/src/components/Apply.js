@@ -1,11 +1,20 @@
 import React from "react";
 
 function Apply(){
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        console.log(e.target.Topic.value);
+        console.log(e.target.Researcher.value);
+        console.log(e.target.Domain.value);
+        console.log(e.target.Grants.value);
+        console.log(e.target.Metamask.value);
+    }
+
     return(
         <>
             <p className={'pl-[36px] text-3xl pt-[18px]'}> Apply </p>
             <div className={'flex flex-col pt-[18px] pl-[18px] text-black'}>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <p className={'pl-[10px]'}> Enter your personal details </p>
                     <div className={'flex pt-[10px]'}>
                         <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1'} placeholder={'First Name'}/>
@@ -20,23 +29,22 @@ function Apply(){
                     </div>
                     <p className={'pl-[10px] pt-[10px]'}> Enter your research details </p>
                     <div className={'flex pt-[10px]'}>
-                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1 w-[400px]'} placeholder={'Research Name'}/>
+                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1 w-[400px]'} id={'Topic'} placeholder={'Research Name'}/>
                     </div>
                     <div className={'flex pt-[10px]'}>
-                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1'} placeholder={'Start Date'}/>
-                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1'} placeholder={'End Date'}/>
+                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1 w-[400px]'} id={'Researcher'} placeholder={'Researcher'}/>
                     </div>
                     <div className={'flex pt-[10px]'}>
-                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1 w-[400px]'} placeholder={'Domain'}/>
+                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1 w-[400px]'} id={'Domain'} placeholder={'Domain'}/>
                     </div>
                     <div className={'flex pt-[10px]'}>
-                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1 w-[400px]'} placeholder={'Expected Grant'}/>
+                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1 w-[400px]'} id={'Grants'} placeholder={'Expected Grant'}/>
                     </div>
                     <div className={'flex pt-[10px]'}>
-                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1 w-[400px]'} placeholder={'Deadline for Grant'}/>
+                        <input className={'border border-black mx-2 rounded-2xl pl-[10px] p-1 w-[400px]'} id={'Metamask'} placeholder={'Metamask ID'}/>
                     </div>
                     <div className={'flex pt-[10px] pl-[5px]'}>
-                        <div className={'border border-black rounded-full p-2 mx-2 bg-green-500'}><button>Apply</button></div>
+                        <div className={'border border-black rounded-full p-2 mx-2 bg-green-500'}><button type={'submit'}>Apply</button></div>
                         <div className={'border border-black rounded-full p-2 mx-2 bg-red-500'}><button>Reset</button></div>
                     </div>
                 </form>
