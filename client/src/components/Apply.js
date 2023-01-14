@@ -45,7 +45,7 @@ function Apply(){
                     </div>
                     <div className={'flex pt-[10px] pl-[5px]'}>
                         <div className={'border border-black rounded-full p-2 mx-2 bg-green-500'}><button type={'submit'}>Apply</button></div>
-                        <div className={'border border-black rounded-full p-2 mx-2 bg-red-500'}><button>Reset</button></div>
+                        <div className={'border border-black rounded-full p-2 mx-2 bg-red-500'}><button type={'reset'}>Reset</button></div>
                     </div>
                 </form>
             </div>
