@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Project from "./Project";
+import axios from 'axios'
 
 function View(){
     const [show, setShow] = useState(false);
@@ -17,6 +18,26 @@ function View(){
         e.preventDefault();
         console.log(e.target.query.value);
     }
+
+    const regInfo = () =>{
+        axios.get("http://localhost:5000/regDetails")
+        .then(res=>{
+            console.log(res)
+        })
+        .catch(err=>console.log(err));
+    }
+
+    regInfo()
+
+    const transactionDetail = () =>{
+        axios.get("http://localhost:5000/userDetails")
+        .then(res=>{
+            console.log(res)
+        })
+        .catch(err=>console.log(err));
+    }
+
+    transactionDetail()
 
 
     return(
