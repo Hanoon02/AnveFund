@@ -8,6 +8,7 @@ function Contribute(){
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState(0);
     const [projectMetamask, setProjectMetamask] = useState('');
+    const [projectDetails, setProjectDetails] = useState('');
 
     useEffect(() => { handleClick() }, [projectMetamask]);
 
@@ -41,7 +42,13 @@ function Contribute(){
             console.log(txhash);
             checkTransactionconfirmation(txhash).then(r => alert(r));
         });
+        updateAmount();
     }
+
+    const updateAmount = () =>{
+        console.log(projectDetails);
+    }
+
 
     function checkTransactionconfirmation(txhash) {
         let checkTransactionLoop = () => {
@@ -70,6 +77,7 @@ function Contribute(){
             .then(res=>{
                 for(let i=0; i<res.data.length; i++){
                     if(res.data[i].title===toCheck){
+                        setProjectDetails(res.data[i]);
                         setProjectMetamask(res.data[i].walletID);
                         setAmount(res.data[i].expectedAmount-res.data[i].collectedAmount);
                     }
